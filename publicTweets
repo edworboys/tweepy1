@@ -1,0 +1,11 @@
+import tweepy
+
+auth = tweepy.OAuthHandler("AeMa4FDalkyX16p9SdgAHQDFE", "b7n04kcZr2aOC77WP5qUPA7kKmPHO4OV3DXnfrEdHNIhbVcFMJ")
+auth.set_access_token("3043518983-G6fhR10CGTQK2IwAT2tW0WzWmfQYVFzCyr7yBOX", "r8rBYlzUMzkZp40rdS8qioa6ohtOcA6RANAnQyTIOOC6I")
+
+api = tweepy.API(auth)
+
+public_tweets = api.search("#techno")
+for tweet in public_tweets:
+    print tweet.user.id
+

@@ -1,0 +1,23 @@
+import tweepy
+
+def get_api(cfg):
+  auth = tweepy.OAuthHandler(cfg['consumer_key'], cfg['consumer_secret'])
+  auth.set_access_token(cfg['access_token'], cfg['access_token_secret'])
+  return tweepy.API(auth)
+
+def main():
+  # Fill in the values noted in previous step here
+  cfg = {
+    "consumer_key"        : "AeMa4FDalkyX16p9SdgAHQDFE",
+    "consumer_secret"     : "b7n04kcZr2aOC77WP5qUPA7kKmPHO4OV3DXnfrEdHNIhbVcFMJ",
+    "access_token"        : "3043518983-G6fhR10CGTQK2IwAT2tW0WzWmfQYVFzCyr7yBOX",
+    "access_token_secret" : "r8rBYlzUMzkZp40rdS8qioa6ohtOcA6RANAnQyTIOOC6I"
+    }
+
+  api = get_api(cfg)
+  tweet = "Hello, Python!"
+  status = api.update_status(status=tweet)
+  # Yes, tweet is called 'status' rather confusing
+
+if __name__ == "__main__":
+  main()
